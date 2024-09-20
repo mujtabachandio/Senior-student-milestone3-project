@@ -1,29 +1,29 @@
 "use client"
-import React, { createContext, useState, ReactNode } from 'react';
-export interface CartItem {
+import { createContext, ReactNode, useState } from 'react';
+
+interface Product {
   id: number;
   name: string;
   price: number;
-  image?: string; 
 }
 
 interface CartContextType {
-  cart: CartItem[];
-  addToCart: (item: CartItem) => void;
+  cart: Product[];
+  addToCart: (product: Product) => void;
   removeFromCart: (id: number) => void;
 }
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+export default function CartProvider({ children }: { children: ReactNode }) {
+  const [cart, setCart] = useState<Product[]>([]);
 
-  const addToCart = (item: CartItem) => {
-    setCart((prevCart) => [...prevCart, item]);
+  const addToCart = (product: Product) => {
+    setCart((prev) => [...prev, product]);
   };
 
   const removeFromCart = (id: number) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+    setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
   return (
@@ -31,4 +31,4 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </CartContext.Provider>
   );
-};
+}
