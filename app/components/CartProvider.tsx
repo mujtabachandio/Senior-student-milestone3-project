@@ -1,4 +1,3 @@
-"use client"
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface Product {
@@ -14,7 +13,7 @@ interface CartContextType {
   removeFromCart: (productId: number) => void;
 }
 
-const CartContext = createContext<CartContextType | undefined>(undefined);
+export const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<Product[]>([]);
