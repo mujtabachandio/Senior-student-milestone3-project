@@ -1,4 +1,4 @@
-'use client';
+// Cart.tsx
 import { useContext } from 'react';
 import { CartContext } from '../components/CartProvider';
 
@@ -7,6 +7,7 @@ export default function Cart() {
   if (!cartContext) {
     throw new Error('CartContext must be used within a CartProvider');
   }
+
   const { cart, removeFromCart } = cartContext;
 
   return (

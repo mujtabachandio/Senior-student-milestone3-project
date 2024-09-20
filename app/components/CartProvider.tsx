@@ -20,13 +20,13 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [cart, setCart] = useState<CartItem[]>([]);
 
   const addToCart = (item: CartItem) => {
-    console.log('Adding to cart:', item);
     setCart((prev) => [...prev, item]);
+    console.log('Item added to cart:', item); // Debug
   };
 
   const removeFromCart = (id: number) => {
-    console.log('Removing from cart:', id);
     setCart((prev) => prev.filter((item) => item.id !== id));
+    console.log('Item removed from cart:', id); // Debug
   };
 
   return (
