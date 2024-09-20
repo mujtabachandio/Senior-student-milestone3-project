@@ -9,7 +9,11 @@ interface CartSidebarProps {
 }
 
 export default function CartSidebar({ onClose }: CartSidebarProps) {
-  const { cart, removeFromCart } = useContext(CartContext) || { cart: [], removeFromCart: () => {} };
+  const cartContext = useContext(CartContext);
+  if (!cartContext) {
+    throw new Error('CartContext must be used within a CartProvider');
+  }
+  const { cart, removeFromCart } = cartContext;
 
   return (
     <div className="fixed top-0 right-0 w-64 bg-white shadow-lg h-full z-50">

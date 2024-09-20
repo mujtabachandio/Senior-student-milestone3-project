@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { createContext, useState, ReactNode } from 'react';
 
 interface CartItem {
@@ -20,10 +20,12 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [cart, setCart] = useState<CartItem[]>([]);
 
   const addToCart = (item: CartItem) => {
+    console.log('Adding to cart:', item);
     setCart((prev) => [...prev, item]);
   };
 
   const removeFromCart = (id: number) => {
+    console.log('Removing from cart:', id);
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 

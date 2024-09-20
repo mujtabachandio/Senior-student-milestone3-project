@@ -1,10 +1,13 @@
 'use client';
-
 import { useContext } from 'react';
 import { CartContext } from '../components/CartProvider';
 
 export default function Cart() {
-  const { cart, removeFromCart } = useContext(CartContext) || { cart: [], removeFromCart: () => {} };
+  const cartContext = useContext(CartContext);
+  if (!cartContext) {
+    throw new Error('CartContext must be used within a CartProvider');
+  }
+  const { cart, removeFromCart } = cartContext;
 
   return (
     <div className="container mx-auto p-6">
