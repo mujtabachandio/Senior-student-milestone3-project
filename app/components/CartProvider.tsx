@@ -1,11 +1,10 @@
-// CartProvider.tsx
+"use client"
 import React, { createContext, useState, ReactNode } from 'react';
-// types.ts (or directly in CartSidebar.tsx if preferred)
 export interface CartItem {
   id: number;
   name: string;
   price: number;
-  image?: string; // optional if you have an image property
+  image?: string; 
 }
 
 interface CartContextType {
