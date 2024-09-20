@@ -14,17 +14,17 @@ interface CartContextType {
   removeFromCart: (id: number) => void;
 }
 
-export const CartContext = createContext<CartContextType | null>(null);
+export const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   const addToCart = (item: CartItem) => {
-    setCart((prevCart) => [...prevCart, item]);
+    setCart((prev) => [...prev, item]);
   };
 
   const removeFromCart = (id: number) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+    setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
   return (
