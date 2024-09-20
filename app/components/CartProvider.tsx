@@ -1,3 +1,4 @@
+"use client"
 import React, { createContext, useState, ReactNode } from 'react';
 
 export const CartContext = createContext<any>(undefined);
