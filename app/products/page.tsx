@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useContext } from 'react';
 import { CartContext } from '../components/CartProvider';
-import Image from 'next/image'; // Import Image from next/image
+import Image from 'next/image'; 
 
 export default function Products() {
   const [products, setProducts] = useState<{ id: number; name: string; price: number; image: string }[]>([]);
@@ -34,8 +34,8 @@ export default function Products() {
             <Image
               src={product.image}
               alt={product.name}
-              width={200} // Specify a width
-              height={200} // Specify a height
+              width={200} 
+              height={200} 
               className="object-cover mb-4 rounded-lg"
             />
             <h2 className="font-semibold text-lg">{product.name}</h2>

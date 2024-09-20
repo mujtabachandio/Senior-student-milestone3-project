@@ -1,9 +1,13 @@
-import CartProvider from './components/CartProvider';
+import { CartProvider } from './components/CartProvider';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <CartProvider>
-      {children}
-    </CartProvider>
+    <html lang="en">
+      <body>
+        <CartProvider>
+          {children}
+        </CartProvider>
+      </body>
+    </html>
   );
 }
