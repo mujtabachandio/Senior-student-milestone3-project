@@ -1,8 +1,8 @@
-// app/products/page.tsx
 'use client';
 
 import { useState, useEffect, useContext } from 'react';
 import { CartContext } from '../components/CartProvider';
+import Image from 'next/image'; // Import Image from next/image
 
 export default function Products() {
   const [products, setProducts] = useState<{ id: number; name: string; price: number; image: string }[]>([]);
@@ -31,7 +31,13 @@ export default function Products() {
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <li key={product.id} className="bg-white p-4 rounded-lg shadow-lg flex flex-col items-center">
-            <img src={product.image} alt={product.name} className="w-full h-48 object-cover mb-4 rounded-lg" />
+            <Image
+              src={product.image}
+              alt={product.name}
+              width={200} // Specify a width
+              height={200} // Specify a height
+              className="object-cover mb-4 rounded-lg"
+            />
             <h2 className="font-semibold text-lg">{product.name}</h2>
             <p className="text-gray-600 mb-2">${product.price}</p>
             <button
