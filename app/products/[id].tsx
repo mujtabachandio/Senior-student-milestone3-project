@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../components/CartProvider';
-import Image from 'next/image'; 
+import Image from 'next/image';
 
 export default function ProductDetail() {
   const router = useRouter();
@@ -14,6 +14,7 @@ export default function ProductDetail() {
 
   const { addToCart } = cartContext;
 
+  // Initialize state for product
   const [product, setProduct] = useState<{ id: number; name: string; price: number; image: string } | null>(null);
 
   // Fetch product details when ID is available
@@ -32,7 +33,7 @@ export default function ProductDetail() {
     };
 
     fetchProduct();
-  }, [id]);
+  }, [id]); // Only runs when 'id' changes
 
   if (!product) return <div>Loading...</div>;
 
