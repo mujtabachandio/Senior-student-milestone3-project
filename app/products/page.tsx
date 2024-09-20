@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useContext } from 'react';
+import Image from 'next/image'; // Import Image
 import { CartContext } from '../components/CartProvider';
 
 export default function Products() {
@@ -31,10 +32,12 @@ export default function Products() {
             key={product.id}
             className="bg-white p-4 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl flex flex-col items-center"
           >
-            <img
+            <Image
               src={product.image}
               alt={product.name}
               className="w-full h-48 object-cover mb-4 rounded-lg transition-transform duration-300 hover:scale-105"
+              width={640} // Set appropriate width
+              height={240} // Set appropriate height
             />
             <div className="text-center">
               <span className="text-xl font-semibold text-gray-800 mb-2 block">{product.name}</span>
