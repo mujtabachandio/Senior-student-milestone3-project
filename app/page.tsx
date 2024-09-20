@@ -5,7 +5,10 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <div>
-      <div className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://briansolis.com/wp-content/uploads/2022/01/eCommerce-Website-Components-photo.jpg')" }}>
+      <div
+        className="relative h-screen bg-cover bg-center"
+        style={{ backgroundImage: "url('https://briansolis.com/wp-content/uploads/2022/01/eCommerce-Website-Components-photo.jpg')" }}
+      >
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white">
           <div className="text-center p-4">
             <h1 className="text-5xl font-bold mb-4">Welcome to Our E-Commerce Website</h1>
@@ -35,6 +38,7 @@ export default function Home() {
                 View Details
               </Link>
             </div>
+            {/* You can add more products here */}
           </div>
         </div>
       </section>
@@ -59,6 +63,7 @@ export default function Home() {
               <p className="font-semibold">Jane Doe</p>
               <p className="text-gray-600">Verified Buyer</p>
             </div>
+            {/* You can add more testimonials here */}
           </div>
         </div>
       </section>
