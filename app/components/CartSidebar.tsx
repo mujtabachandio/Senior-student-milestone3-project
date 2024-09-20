@@ -4,10 +4,17 @@ import { useContext } from 'react';
 import { CartContext } from './CartProvider';
 import { FaTimes } from 'react-icons/fa';
 
+
 interface CartSidebarProps {
   onClose: () => void;
 }
 
+export interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  image?: string; 
+}
 export default function CartSidebar({ onClose }: CartSidebarProps) {
   const { cart, removeFromCart } = useContext(CartContext) || { cart: [], removeFromCart: () => {} };
 
@@ -24,7 +31,7 @@ export default function CartSidebar({ onClose }: CartSidebarProps) {
           <p className="text-gray-600">Your cart is empty.</p>
         ) : (
           <ul>
-            {cart.map((item) => (
+            {cart.map((item: CartItem) => (  // Type the item here
               <li key={item.id} className="mb-4 flex justify-between items-center">
                 <span className="text-gray-800">{item.name}</span>
                 <span className="text-gray-800">${item.price}</span>
