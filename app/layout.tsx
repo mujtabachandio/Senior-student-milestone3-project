@@ -1,18 +1,13 @@
-import { ReactNode } from 'react';
-import './globals.css';
-import Navbar from './components/Navbar';
-import CartProvider from './components/CartProvider';
-import Footer from './components/Footer';
+// app/layout.tsx
+import { CartProvider } from './components/CartProvider';
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
         <CartProvider>
-          <Navbar />
-          <main>{children}</main>
+          {children}
         </CartProvider>
-        <Footer/>
       </body>
     </html>
   );

@@ -1,3 +1,4 @@
+// app/api/products/route.ts
 import { NextResponse } from 'next/server';
 
 const products = [
@@ -11,16 +12,6 @@ const products = [
   { id: 8, name: 'Product 8', price: 80, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe9H85YedGZASq8cAWK9KbwKt1kOfzs-l5kQ&s' },
   { id: 9, name: 'Product 9', price: 90, image: 'https://m.media-amazon.com/images/I/81ani+NedxL._AC_SL1500_.jpg' },
   { id: 10, name: 'Product 10', price: 100, image: 'https://m.media-amazon.com/images/I/61iUVxnGkYL._AC_UF1000,1000_QL80_.jpg' },
-  { id: 11, name: 'Product 11', price: 110, image: '' },
-  { id: 12, name: 'Product 12', price: 120, image: '' },
-  { id: 13, name: 'Product 13', price: 130, image: '' },
-  { id: 14, name: 'Product 14', price: 140, image: '' },
-  { id: 15, name: 'Product 15', price: 150, image: '' },
-  { id: 16, name: 'Product 16', price: 160, image: '' },
-  { id: 17, name: 'Product 17', price: 170, image: '' },
-  { id: 18, name: 'Product 18', price: 180, image: '' },
-  { id: 19, name: 'Product 19', price: 190, image: '' },
-  { id: 20, name: 'Product 20', price: 200, image: '' },
 ];
 
 export async function GET() {
