@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -24,7 +25,13 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {/* Example Product Card */}
             <div className="bg-white p-4 rounded-lg shadow-lg">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzqJ-twbKdcDTaWUoMEGUi2uhHpzJ1mD5ZuA&s" alt="Product" className="w-full h-40 object-cover mb-4 rounded-t-lg" />
+              <Image 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzqJ-twbKdcDTaWUoMEGUi2uhHpzJ1mD5ZuA&s" 
+                alt="Product" 
+                className="w-full h-40 object-cover mb-4 rounded-t-lg" 
+                width={640} 
+                height={240} 
+              />
               <h3 className="text-xl font-semibold mb-2">Product Name</h3>
               <p className="text-gray-700 mb-4">$99.99</p>
               <Link href="/products" className="bg-blue-500 text-white px-4 py-2 rounded-lg text-center block hover:bg-blue-600 transition-colors">
@@ -54,27 +61,14 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-8">
             {/* Example Testimonial */}
             <div className="bg-white p-6 rounded-lg shadow-lg w-full sm:w-1/2 lg:w-1/3 transform transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-gray-800 hover:text-white">
-              <p className="text-lg mb-4">"Great products and excellent customer service. Highly recommend!"</p>
+              <p className="text-lg mb-4">&quot;Great products and excellent customer service. Highly recommend!&quot;</p>
               <p className="font-semibold">Jane Doe</p>
               <p className="text-gray-600">Verified Buyer</p>
             </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-lg w-full sm:w-1/2 lg:w-1/3 transform transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-gray-800 hover:text-white">
-              <p className="text-lg mb-4">"Great products and excellent customer service. Highly recommend!"</p>
-              <p className="font-semibold">Jane Doe</p>
-              <p className="text-gray-600">Verified Buyer</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-lg w-full sm:w-1/2 lg:w-1/3 transform transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-gray-800 hover:text-white">
-            <p className="text-lg mb-4 transition-opacity duration-300 ease-in-out hover:opacity-90">"Great products and excellent customer service. Highly recommend!"</p>
-            <p className="font-semibold text-xl transition-transform duration-300 ease-in-out hover:scale-105">Jane Doe</p>
-            <p className="text-gray-600 transition-opacity duration-300 ease-in-out hover:opacity-80">Verified Buyer</p>
-          </div>
-
+            {/* Repeat for other testimonials */}
           </div>
         </div>
       </section>
-
     </div>
   );
 }
