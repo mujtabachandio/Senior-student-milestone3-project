@@ -1,4 +1,4 @@
-// Cart.tsx
+"use client";
 import { useContext } from 'react';
 import { CartContext } from '../components/CartProvider';
 
