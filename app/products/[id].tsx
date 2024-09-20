@@ -8,19 +8,13 @@ export default function ProductDetail() {
   const { id } = router.query;
 
   const cartContext = useContext(CartContext);
-  if (!cartContext) {
-    return <div>Error: Cart context is not available</div>;
-  }
+  const { addToCart } = cartContext || { addToCart: () => {} }; // Fallback if context is undefined
 
-  const { addToCart } = cartContext;
-
-  // Initialize state for product
   const [product, setProduct] = useState<{ id: number; name: string; price: number; image: string } | null>(null);
-
-  // Fetch product details when ID is available
+  
   useEffect(() => {
     const fetchProduct = async () => {
-      if (id) {
+      if (id && typeof id === 'string') {
         try {
           const response = await fetch(`/api/products/${id}`);
           if (!response.ok) throw new Error('Product not found');
@@ -33,7 +27,7 @@ export default function ProductDetail() {
     };
 
     fetchProduct();
-  }, [id]); // Only runs when 'id' changes
+  }, [id]); 
 
   if (!product) return <div>Loading...</div>;
 
