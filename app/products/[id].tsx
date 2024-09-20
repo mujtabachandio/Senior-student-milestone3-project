@@ -15,7 +15,7 @@ export default function ProductDetail() {
     return <div>Error: Cart context is not available</div>;
   }
 
-  const { cart, addToCart } = cartContext;
+  const {addToCart } = cartContext;
 
   // For simplicity, we'll use hardcoded product data.
   const product = { id: Number(id), name: 'Product ' + id, price: 20 };
