@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../components/CartProvider';
+import Image from 'next/image'; 
 
 export default function ProductDetail() {
   const router = useRouter();
@@ -15,9 +16,10 @@ export default function ProductDetail() {
 
   const [product, setProduct] = useState<{ id: number; name: string; price: number; image: string } | null>(null);
 
+  // Fetch product details when ID is available
   useEffect(() => {
-    if (id) {
-      const fetchProduct = async () => {
+    const fetchProduct = async () => {
+      if (id) {
         try {
           const response = await fetch(`/api/products/${id}`);
           if (!response.ok) throw new Error('Product not found');
@@ -26,9 +28,10 @@ export default function ProductDetail() {
         } catch (error) {
           console.error('Failed to fetch product:', error);
         }
-      };
-      fetchProduct();
-    }
+      }
+    };
+
+    fetchProduct();
   }, [id]);
 
   if (!product) return <div>Loading...</div>;
@@ -36,7 +39,13 @@ export default function ProductDetail() {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold">{product.name}</h1>
-      <img src={product.image} alt={product.name} className="mb-4" />
+      <Image
+        src={product.image}
+        alt={product.name}
+        width={400}
+        height={400}
+        className="mb-4"
+      />
       <p className="text-gray-500">${product.price}</p>
       <button
         onClick={() => addToCart(product)}
